@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Авг 01 2024 г., 17:36
+-- Время создания: Окт 30 2024 г., 13:15
 -- Версия сервера: 10.1.37-MariaDB
 -- Версия PHP: 8.1.28
 
@@ -31,7 +31,7 @@ CREATE TABLE `answers` (
   `id_answer` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `type` enum('landing','banner','smm','3d','product','branding','copywrite','illustration','other') COLLATE utf8_unicode_ci NOT NULL,
-  `state` enum('IN_PROGRESS','FINISHED','CANCELED') COLLATE utf8_unicode_ci NOT NULL,
+  `state` enum('IN_PROGRESS','FINISHED','CANCELED','DO_BRIEF','WAIT') COLLATE utf8_unicode_ci NOT NULL,
   `question_number` int(11) NOT NULL,
   `q0` text COLLATE utf8_unicode_ci NOT NULL,
   `q1` text COLLATE utf8_unicode_ci NOT NULL,
@@ -52,13 +52,6 @@ CREATE TABLE `answers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `answers`
---
-
-INSERT INTO `answers` (`id_answer`, `id_user`, `type`, `state`, `question_number`, `q0`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`) VALUES
-(1, 828211050, 'landing', 'FINISHED', 12, '', 'Ответ на лендинг', 'Ответ 2', 'Ответ 3', 'Ответ 4', 'Ответ 5', 'Ответ 6', 'Ответ 7', 'Ответ 8', 'Ответ 9', 'Ответ 10', 'Ответ 11', 'Ответ 12', '', '', '');
-
---
 -- Индексы сохранённых таблиц
 --
 
@@ -76,7 +69,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT для таблицы `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_answer` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
